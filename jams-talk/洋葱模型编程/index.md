@@ -1,0 +1,74 @@
+洋葱模型
+============
+
+实现
+========
+
+考虑3层洋葱模型，A、B、C。
+
+A层：
+```javascript
+var middlewareA = function (ins) {
+  return function (next) {
+    return function (payload) {
+      // some operations here ...
+      var result = next(payload);
+      // some operations here ...
+      return result;
+    }
+  }
+}
+```
+
+B层：
+```javascript
+var middlewareB = function (ins) {
+  return function (next) {
+    return function (payload) {
+      // some operations here ...
+      var result = next(payload);
+      // some operations here ...
+      return result;
+    }
+  }
+}
+```
+
+C层实际上是洋葱模型的内核：
+
+```javascript
+var middlewareC = function (ins) {
+  return function () {
+    return function (payload) {
+      // some operations here ...
+      return operate(payload);
+    }
+  }
+}
+```
+
+从C层到A层回溯分析：
+
+```javascript
+var mcPayloadHandler = middlewareC(ins)();
+var mbPayloadHandler = middlewareB(ins)(mcPayloadHandler);
+var maPayloadHandler = middlewareA(ins)(mbPayloadHandler);
+var finalResult = maPayloadHandler(payload);
+```
+
+用回调金字塔写的话，就像这样：
+
+```javascript
+var f = middlewareA(ins)(
+  middlewareB(ins)(
+    middlewareC(ins)()
+  )
+);
+var finalResult = f(payload);
+```
+
+在线demo：<https://repl.it/Ca3K/0>
+
+
+
+
