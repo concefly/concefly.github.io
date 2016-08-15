@@ -3,14 +3,14 @@
   <nav>
     <div class="nav-wrapper">
       <div class="container">
-      <a href="{{site.url}}{{site.baseurl}}" class="brand-logo">Lofter</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+        <div class="row">
+          <div class="col s6">
+            <a href="{{site.url}}{{site.baseurl}}" style="font-size: 1.64rem;">Lofter</a>
+          </div>
+          <div class="col s6">
+            <a href="{{site.url}}/about.html" class="right" style="font-size: 1rem;">关于</a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>

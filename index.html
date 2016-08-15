@@ -4,18 +4,21 @@ layout: default
 
 <div class="">
 
-  <h1 class="">Posts</h1>
-
-  <ul class="">
-    {% for post in site.posts %}
-      <li>
-        <h2>
-          <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        <div class="chip">{{ post.date | date: "%b %-d, %Y" }}</div>
-      </li>
-    {% endfor %}
-  </ul>
+  {% for post in site.posts %}
+    <div class="section">
+      <h4>
+        <a class="" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h4>
+      <div>
+        {% for tag in post.tags %}
+          <span class="chip">{{tag}}</span>
+        {% endfor %}
+      </div>
+      <div>
+        {{post.excerpt}}
+      </div>
+    </div>
+  {% endfor %}
 
   <p class="">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
