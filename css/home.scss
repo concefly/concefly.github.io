@@ -1,0 +1,51 @@
+---
+
+---
+@charset "utf-8";
+
+body.home {
+  .site-header {
+    position: relative;
+    margin-bottom: -64px;
+    z-index: 2;
+    nav {
+      background-color: transparent;
+    }
+  }
+}
+
+.jumb {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 300px;
+
+  &-cover {
+    height: 100%;
+    background-image: url(//7xljt6.com1.z0.glb.clouddn.com/56457333dc6c1d0b4677afcb114cf494.png);
+    background-size: cover;
+    background-color: #ccc;
+    background-position: center;
+  }
+
+  &-content {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    &-title {
+      margin: 0 0 16px 0;
+      font-size: 45px;
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+      font-family: Simsun, "宋体";
+    }
+    &-desc {
+      font-size: 20px;
+      font-weight: normal;
+      text-align: center;
+      color: #fff;
+      font-family: Simsun, "宋体";
+    }
+  }
+}
