@@ -1,0 +1,45 @@
+---
+# Only the Sass file needs front matter (the dashes are enough)
+---
+
+
+.post {
+  margin-top: 20px;
+
+  &-header {
+    padding: 30px 20px 30px 20px;
+    border: 1px solid #aaa;
+
+    &-title {
+      margin-top: 0;
+    }
+  }
+
+  &-content {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #aaa;
+
+    h1,h2,h3,h4,h5,h6 {
+      margin-top: .8em;
+    }
+    p {
+      margin-top: 0;
+    }
+    strong {
+      font-weight: 700;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    // 覆盖 materialize-css
+    ul {
+      padding-left: 30px;
+      list-style-type: disc;
+      li {
+        list-style-type: disc;
+      }
+    }
+  }
+}
