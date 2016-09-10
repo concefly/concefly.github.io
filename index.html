@@ -17,7 +17,7 @@ layout: none
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   </head>
 
-  <body class="home">
+  <body class="lofter home">
     {% include header.html %}
 
     <section class="jumb">
@@ -35,7 +35,7 @@ layout: none
           <div class="col m4">
             <div class="card small">
               <div class="card-image">
-                <a href="{{post.url}}" target="_blank" >
+                <a href="{{post.url}}">
                   <img src="{{post.cover}}-600w" alt="{{post.title}}">
                   <div class="card-title">{{post.title}}</div>
                 </a>

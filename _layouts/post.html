@@ -1,22 +1,47 @@
 ---
-layout: default
+layout: none
 ---
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<!DOCTYPE html>
+<html>
 
-  <header class="post-header">
-    <h1 class="post-header-title" itemprop="name headline">{{ page.title }}</h1>
-    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished"> &gt; {{ page.date | date: "%b %-d, %Y" }}</time>
-  </header>
+  <head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ "/css/post.css" | prepend: site.baseurl }}">
+  </head>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+  <body class="lofter post">
 
-  <div>
-    {% for tag in page.tags %}
-    <span class="chip">{{tag}}</span>
-    {% endfor %}
-  </div>
+    {% include header.html %}
 
-</article>
+    <section class="jumb">
+      <div class="jumb-cover" style="background-image: url({{ page.cover }}-c300h)"></div>
+      <div class="jumb-mask darken"></div>
+      <div class="jumb-content">
+        <h1 class="jumb-content-title">{{ page.title }}</h1>
+        <div class="jumb-content-desc">
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <article class="article">
+
+        <div class="article-content">
+          {{ content }}
+        </div>
+
+        <div>
+          {% for tag in page.tags %}
+          <span class="chip">{{tag}}</span>
+          {% endfor %}
+        </div>
+      </article>
+    </div>
+
+    {% include footer.html %}
+    {% include body-tail.html %}
+  </body>
+
+</html>
